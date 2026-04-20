@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    /* Gestión de Archivos */
+    "rootDir": "./src",
+    "outDir": "./dist",
+
+    /* Configuración del Entorno */
+    "module": "NodeNext",
+    "target": "ESNext",
+    "moduleResolution": "NodeNext",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+
+    /* Salidas de tipado (irán a /dist) */
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
+
+    /* Opciones de Estricto */
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+    "isolatedModules": true,
+
+    /* Importante: Desactivamos esto para evitar errores con imports de Node */
+    "verbatimModuleSyntax": false,
+    "moduleDetection": "force"
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist"]
+}

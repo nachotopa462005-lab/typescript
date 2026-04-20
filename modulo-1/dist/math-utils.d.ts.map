@@ -1,0 +1,1 @@
+{"version":3,"file":"math-utils.d.ts","sourceRoot":"","sources":["../src/math-utils.ts"],"names":[],"mappings":"AAAA,KAAK,UAAU,GAAG,MAAM,GAAG,IAAI,CAAC;AAEhC,eAAO,MAAM,aAAa,GAAI,SAAS,MAAM,EAAE,KAAG,UAIjD,CAAC;AAEF,eAAO,MAAM,eAAe,GAAI,SAAS,MAAM,EAAE,KAAG,UAiBnD,CAAC;AAEF,eAAO,MAAM,eAAe,GAAI,SAAS,MAAM,EAAE,EAAE,QAAQ,MAAM,KAAG,MAAM,EAKzE,CAAC"}
