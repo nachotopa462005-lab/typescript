@@ -1,24 +1,26 @@
-import { ApiClient } from './services/api-client.js';
-import { Estudiante, Asignatura } from './domain/types/universidad.js';
+import { EstadoMatricula } from './domain/types/universidad.js';
 
-const api = new ApiClient();
-
-async function probarAPI() {
-    console.log("--- INICIANDO PRUEBAS DE API GENÉRICA ---");
-
-    // 1. Pedimos un Estudiante. Pasamos <Estudiante> como parámetro de tipo.
-    const resEstudiante = await api.obtenerRecurso<Estudiante>('/estudiantes/1');
-    if (resEstudiante.exito) {
-        // Aquí TypeScript SABE que resEstudiante.datos tiene 'nombre' y 'email'
-        console.log(`✅ Estudiante recibido correctamente.`);
-    }
-
-    // 2. Pedimos una Asignatura. Pasamos <Asignatura>.
-    const resAsignatura = await api.obtenerRecurso<Asignatura>('/asignaturas/TS-101');
-    if (resAsignatura.exito) {
-        // Aquí TypeScript SABE que resAsignatura.datos tiene 'codigo' y 'creditos'
-        console.log(`✅ Asignatura recibida: ${resAsignatura.codigoEstado}`);
+function generarReporte(estado: EstadoMatricula): string {
+    switch (estado.tipo) {
+        case "ACTIVA":
+            // Aquí TypeScript sabe que 'estado' es MatriculaActiva
+            return `Cursando ${estado.asignaturas.length} asignaturas.`;
+        
+        case "SUSPENDIDA":
+            // Aquí sabe que es MatriculaSuspendida
+            return `Suspendida por: ${estado.motivo}.`;
+        
+        case "FINALIZADA":
+            // Aquí sabe que es MatriculaFinalizada
+            return `Finalizada con media de ${estado.notaMedia}.`;
+        
+        default:
+            /**
+             * Si implementaste bien la unión en el Módulo 2, 
+             * al llegar aquí 'estado' ya no puede ser nada más.
+             * Por eso, asignarlo a 'never' funciona.
+             */
+            const _checkExhaustivo: never = estado;
+            return _checkExhaustivo; 
     }
 }
-
-probarAPI();
